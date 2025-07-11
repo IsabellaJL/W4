@@ -8,7 +8,6 @@ This project allows you to:
 - Track user **interactions** using **Session Storage**
 - Clear the stored data with a button
 
----
 
 # How it works
 
@@ -36,7 +35,6 @@ Each click on the "Save" or "Clear" buttons increases a counter displayed on the
 ## 4. Clear data
 The **"Clear Data"** button removes all data from `localStorage` and updates the display.
 
----
 
 # Files included
 
@@ -45,22 +43,19 @@ The **"Clear Data"** button removes all data from `localStorage` and updates the
 - `styles.css`: Basic styles
 - `README.md`: This file 
 
----
 
 # Technologies used
 
-- HTML5
-- CSS3
-- JavaScript ES6
+- HTML
+- CSS
+- JavaScript 
 
----
 
 # Validations
 
 - Name **must not contain numbers**
 - Age **must be a valid number**
 
----
 
 #  How to use
 
@@ -69,7 +64,6 @@ The **"Clear Data"** button removes all data from `localStorage` and updates the
 3. Enter your data and test the buttons
 4. Open the console (F12) to see the interaction count as well
 
----
 
 #  Author
 
