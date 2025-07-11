@@ -1,13 +1,13 @@
-// Mostrar los datos al cargar la página
+//Show the data on the screen
 displayData();
 updateInteractionDisplay();
 
-// Inicializar contador de interacciones en Session Storage
+// Initialize interaction counter in Session Storage
 if (!sessionStorage.getItem('interactionCount')) {
     sessionStorage.setItem('interactionCount', 0);
 }
 
-// Evento para guardar datos en el localStorage
+// Event to save data to localStorage
 document.getElementById('saveButton').addEventListener('click', () => {
     const nameInput = document.getElementById('name');
     const ageInput = document.getElementById('age');
@@ -15,7 +15,7 @@ document.getElementById('saveButton').addEventListener('click', () => {
     const name = nameInput.value.trim();
     const age = parseInt(ageInput.value);
 
-    // Validación: nombre sin números ni símbolos
+    // Check that the name does not have numbers or symbols
     const nameIsValid = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(name);
 
     if (nameIsValid && !isNaN(age)) {
@@ -23,24 +23,25 @@ document.getElementById('saveButton').addEventListener('click', () => {
         localStorage.setItem('userAge', age);
         displayData();
     } else {
-        document.getElementById('output').textContent = "⚠️ Nombre inválido o edad no numérica.";
+        document.getElementById('output').textContent = "⚠️ Invalid name or non-numeric age.";
+        alert("⚠️ Invalid name or non-numeric age.")
     }
 });
 
-// Función para mostrar los datos almacenados
+//Function to display stored data
 function displayData() {
     const name = localStorage.getItem('userName');
     const age = localStorage.getItem('userAge');
     const outputDiv = document.getElementById('output');
 
     if (name && age) {
-        outputDiv.textContent = `Hola ${name}, tienes ${age} años.`;
+        outputDiv.textContent = `Hi ${name}, you are ${age} years old.`;
     } else {
-        outputDiv.textContent = "No hay datos almacenados.";
+        outputDiv.textContent = "No data stored.";
     }
 }
 
-// Función para actualizar el contador de interacciones
+// Function to update the interaction counter
 function updateInteractionCount() {
     let count = parseInt(sessionStorage.getItem('interactionCount'));
     count++;
@@ -48,19 +49,19 @@ function updateInteractionCount() {
     updateInteractionDisplay();
 }
 
-// Mostrar contador de iteracciones
+// Display iteration counter
 function updateInteractionDisplay() {
     const count = sessionStorage.getItem('interactionCount');
     const display = document.getElementById('interactionCount');
-    display.textContent = `Interacciones esta sesión: ${count}`;
-    console.log(`Interacciones esta sesión: ${count}`)
+    display.textContent = `Interactions this session: ${count}`;
+    console.log(`Interactions this session: ${count}`)
 }
 
-// Eventos para contar interacciones
+// Events to count interactions
 document.getElementById('saveButton').addEventListener('click', updateInteractionCount);
 document.getElementById('clearButton').addEventListener('click', updateInteractionCount);
 
-// Evento para limpiar datos del localStorage
+// Event to clear data from localStorage
 document.getElementById('clearButton').addEventListener('click', () => {
     localStorage.clear();
     displayData();
